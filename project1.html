@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Спортна зала</title>
+  <link rel="stylesheet" href="../CSS/project1.css" />
+</head>
+<body>
+<header>
+  <h1>Събития</h1>
+  <nav>
+    <a href="project1.html">Начало</a>
+    <a href="about.html">За нас</a>
+    <a href="contacts.html">Контакти</a>
+  </nav>
+</header>
+<main class="container">
+<section class="hero">
+  <h2>Най-големите събития във Варна</h2>
+  <p class="hero-tags"><span class="tag tag-concert">Концерти</span>, <span class="tag tag-sport">спорт</span> и <span class="tag tag-show">шоу програми</span></p>
+</section>
+<section class="events">
+  <h2>Предстоящи събития</h2>
+  <div id="events-container">
+    <article class="event-card upcoming" data-date="2026-03-20">
+      <h3 class="event-title">Волейбол: ЦСКА — Черно море</h3>
+      <p class="event-meta">Дата: 20 Март 2026 г. • Място: Спортна зала Варна • Час: 18:30</p>
+      <div class="match">
+        <div class="team-short">
+          <strong>ЦСКА</strong>
+          <p>Състав: 12 играчи (виж повече за пълен списък)</p>
+        </div>
+        <div class="team-short">
+          <strong>Черно море</strong>
+          <p>Състав: 12 играчи (виж повече за пълен списък)</p>
+        </div>
+      </div>
+      <a class="see-more" href="event.html">Виж повече</a>
+      <p class="event-desc">Турнирна среща.</p>
+      <p class="event-price">Цена: 15 лв</p>
+    </article>
+    <article class="event-card upcoming" data-date="2026-04-05">
+      <h3 class="event-title">Концерт: Криско</h3>
+      <p class="event-meta">Дата: 5 Април 2026 г. • Място: Открита сцена Варна • Час: 20:00</p>
+      <p class="event-desc">Голям концерт на Криско с най-популярните му хитове. Билети и подробности — виж повече.</p>
+      <p class="event-price">Цена: 40 лв</p>
+      <a class="see-more" href="event_krisko.html">Виж повече</a>
+    </article>
+    <article class="event-card upcoming" data-date="2026-03-12">
+      <h3 class="event-title">Баскетбол: Левски — Черно море</h3>
+      <p class="event-meta">Дата: 12 Март 2026 г. • Място: Зала "Конгресна" • Час: 19:00</p>
+      <div class="match">
+        <div class="team-short">
+          <strong>Левски</strong>
+          <p>Състав: 12 играчи (виж повече за пълен списък)</p>
+        </div>
+        <div class="team-short">
+          <strong>Черно море</strong>
+          <p>Състав: 12 играчи (виж повече за пълен списък)</p>
+        </div>
+      </div>
+      <a class="see-more" href="event_basketball.html">Виж повече</a>
+      <p class="event-desc">Двубой от националното първенство.</p>
+      <p class="event-price">Цена: 20 лв</p>
+    </article>
+  </div>
+</section>
+<section class="faq">
+  <h2>Често задавани въпроси</h2>
+  <div class="faqs">
+    <details>
+      <summary>Как мога да купя билет?</summary>
+      <div>Билети се купуват онлайн чрез формата на събитието или на касата на залата.</div>
+    </details>
+    <details>
+      <summary>Има ли паркинг до залата?</summary>
+      <div>Да, има ограничен паркинг около залата; препоръчва се да пристигнете по-рано.</div>
+    </details>
+    <details>
+      <summary>Мога ли да върна билет?</summary>
+      <div>Връщане на билети е възможно до 48 часа преди събитието при предварително уведомление.</div>
+    </details>
+    <details>
+      <summary>Има ли възможност за групови отстъпки?</summary>
+      <div>За групи над 10 души предлагаме отстъпки — свържете се с организаторите.</div>
+    </details>
+    <details>
+      <summary>Как да получавам уведомления за нови събития?</summary>
+      <div>Абонирайте се чрез формата в секцията "Абонирай се" и ще получавате имейл уведомление.</div>
+    </details>
+  </div>
+</section>
+<section class="newsletter">
+  <h2>Абонирай се</h2>
+  <p class="subscribe-desc">Въведете своя имейл, за да получавате известия при публикуване на нови събития, промени в програмата и специални оферти.</p>
+  <input type="email" placeholder="Имейл">
+  <button>Запиши ме</button>
+</section>
+</main>
+</main>
+
+<script>
+  // сортирам евентите по дати
+  (function(){
+    const container = document.getElementById('events-container');
+    if(!container) return;
+    const items = Array.from(container.querySelectorAll('article[data-date]'));
+    items.sort((a,b)=> new Date(a.dataset.date) - new Date(b.dataset.date));
+    items.forEach(i=> container.appendChild(i));
+  })();
+</script>
+
+<script src="../js/events.js"></script>
+<script src="../js/render.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
+
